@@ -71,7 +71,7 @@ class Frete
   end
   
   def find
-    uri = "http://frete.w21studio.com/calFrete.xml?cep=#{self.cep}&cod=5112&peso=#{self.peso}&comprimento=#{self.comprimento}&largura=#{self.largura}&altura=#{self.altura}&servico=3"
+    uri = "http://frete.w21studio.com/calFrete.xml?cep=#{self.cep}&cod=1000&peso=#{self.peso}&comprimento=#{self.comprimento}&largura=#{self.largura}&altura=#{self.altura}&servico=3"
     
     source = open(uri).read
     xml = Document.new(source).root
