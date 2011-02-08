@@ -16,3 +16,4 @@ config/email.yml
 public/images/products/**/*
 public/stylesheets/shopping/sample.css
 tmp/**/*
+*.gem

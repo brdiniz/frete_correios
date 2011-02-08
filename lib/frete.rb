@@ -159,6 +159,7 @@ class Frete
   end
   
   def find
+    puts "chamo chamo"
     uri = "http://ws.correios.com.br/calculador/CalcPrecoPrazo.aspx?"
     uri += "nCdEmpresa=" + @codigo_empresa
     uri += "&sDsSenha=" + @senha_empresa
