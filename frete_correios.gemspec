@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name        = "frete_correios"
-  s.version     = "0.2.5"
+  s.version     = "0.2.6"
   s.author      = "Bruno Diniz"
   s.email       = "contato@brdiniz.com"
   s.homepage    = "https://github.com/Brdiniz/frete_correios"
