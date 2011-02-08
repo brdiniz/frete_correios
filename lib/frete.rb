@@ -149,13 +149,13 @@ class Frete
     @servicos = find
   end
   
-  def servicos_to_xml
-    xml = "<?xml version='1.0' encoding='UTF-8'?>"
-    xml += "<servicos type='array'>"
+  def servicos_to_json
+    json = "["
     self.servicos.each do |servico|      
-      xml += servico.to_xml.gsub("<?xml version='1.0' encoding='UTF-8'?>","")
+      json += servico.to_json
+      json += "," if @servicos.last != servico
     end
-    xml += "</servicos>"
+    json += "]"
   end
   
   def find

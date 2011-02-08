@@ -47,7 +47,17 @@ describe Servico do
     @s.entrega_sabado.should == "S"
   end
   
-  it "posso ler o xml" do
-    @s.to_xml.should == "<?xml version='1.0' encoding='UTF-8'?><servico><codigo>41106</codigo><valor>10,00</valor><prazo_entrega>3</prazo_entrega><valor_mao_de_obra>1,32</valor_mao_de_obra><valor_aviso_recebimento>1,50</valor_aviso_recebimento><valor_declarado>100,00</valor_declarado><entrega_domiciliar>S</entrega_domiciliar><entrega_sabado>S</entrega_sabado></servico>"
+  it "posso ler o json" do
+    json = "{""servico"":{"
+    json += """codigo"": ""41106"""
+    json += """valor"": ""10,00"""
+    json += """prazo_entrega"": ""3"""
+    json += """valor_mao_de_obra"": ""1,32"""
+    json += """valor_aviso_recebimento"": ""1,50"""
+    json += """valor_declarado"": ""100,00"""
+    json += """entrega_domiciliar"": ""S"""
+    json += """entrega_sabado"": ""S"""
+    json += """}}"""
+    @s.to_json.should == json
   end
 end

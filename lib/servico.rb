@@ -77,18 +77,17 @@ class Servico
     @entrega_sabado
   end
   
-  def to_xml
-    xml = "<?xml version='1.0' encoding='UTF-8'?>"
-    xml += "<servico>"
-    xml += "<codigo>#{self.codigo}</codigo>"
-    xml += "<valor>#{self.valor}</valor>"
-    xml += "<prazo_entrega>#{self.prazo_entrega}</prazo_entrega>"
-    xml += "<valor_mao_de_obra>#{self.valor_mao_de_obra}</valor_mao_de_obra>"
-    xml += "<valor_aviso_recebimento>#{self.valor_aviso_recebimento}</valor_aviso_recebimento>"
-    xml += "<valor_declarado>#{self.valor_declarado}</valor_declarado>"
-    xml += "<entrega_domiciliar>#{self.entrega_domiciliar}</entrega_domiciliar>"
-    xml += "<entrega_sabado>#{self.entrega_sabado}</entrega_sabado>"
-    xml += "</servico>"
+  def to_json
+    json = "{""servico"":{"
+    json += """codigo"": ""#{self.codigo}"""
+    json += """valor"": ""#{self.valor}"""
+    json += """prazo_entrega"": ""#{self.prazo_entrega}"""
+    json += """valor_mao_de_obra"": ""#{self.valor_mao_de_obra}"""
+    json += """valor_aviso_recebimento"": ""#{self.valor_aviso_recebimento}"""
+    json += """valor_declarado"": ""#{self.valor_declarado}"""
+    json += """entrega_domiciliar"": ""#{self.entrega_domiciliar}"""
+    json += """entrega_sabado"": ""#{self.entrega_sabado}"""
+    json += """}}"""
   end
   
   private
