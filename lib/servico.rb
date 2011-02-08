@@ -78,16 +78,16 @@ class Servico
   end
   
   def to_json
-    json = "{""servico"":{"
-    json += """codigo"": ""#{self.codigo}"""
-    json += """valor"": ""#{self.valor}"""
-    json += """prazo_entrega"": ""#{self.prazo_entrega}"""
-    json += """valor_mao_de_obra"": ""#{self.valor_mao_de_obra}"""
-    json += """valor_aviso_recebimento"": ""#{self.valor_aviso_recebimento}"""
-    json += """valor_declarado"": ""#{self.valor_declarado}"""
-    json += """entrega_domiciliar"": ""#{self.entrega_domiciliar}"""
-    json += """entrega_sabado"": ""#{self.entrega_sabado}"""
-    json += """}}"""
+    json = '{"servico":{'
+    json += '"codigo": "' + self.codigo + '",'
+    json += '"valor": "' + self.valor + '",'
+    json += '"prazo_entrega": "' + self.prazo_entrega + '",'
+    json += '"valor_mao_de_obra": "' + self.valor_mao_de_obra + '",'
+    json += '"valor_aviso_recebimento": "' + self.valor_aviso_recebimento + '",'
+    json += '"valor_declarado": "' + self.valor_declarado + '",'
+    json += '"entrega_domiciliar": "' + self.entrega_domiciliar + '",'
+    json += '"entrega_sabado": "' + self.entrega_sabado + '"'
+    json += '}}'
   end
   
   private

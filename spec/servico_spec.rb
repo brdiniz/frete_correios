@@ -48,16 +48,16 @@ describe Servico do
   end
   
   it "posso ler o json" do
-    json = "{""servico"":{"
-    json += """codigo"": ""41106"""
-    json += """valor"": ""10,00"""
-    json += """prazo_entrega"": ""3"""
-    json += """valor_mao_de_obra"": ""1,32"""
-    json += """valor_aviso_recebimento"": ""1,50"""
-    json += """valor_declarado"": ""100,00"""
-    json += """entrega_domiciliar"": ""S"""
-    json += """entrega_sabado"": ""S"""
-    json += """}}"""
+    json = '{"servico":{'
+    json += '"codigo": "41106",'
+    json += '"valor": "10,00",'
+    json += '"prazo_entrega": "3",'
+    json += '"valor_mao_de_obra": "1,32",'
+    json += '"valor_aviso_recebimento": "1,50",'
+    json += '"valor_declarado": "100,00",'
+    json += '"entrega_domiciliar": "S",'
+    json += '"entrega_sabado": "S"'
+    json += '}}'
     @s.to_json.should == json
   end
 end
