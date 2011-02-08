@@ -86,8 +86,7 @@ describe Frete do
   it "posso ler a lista de servicos gerados pelo frete" do
     servicos = @f.servicos
     
-    xml = "<?xml version='1.0' encoding='UTF-8'?>"
-    xml += "<servicos type='array'>"
+    xml == "<servicos type='array'>"
     xml += servicos[0].to_xml.gsub("<?xml version='1.0' encoding='UTF-8'?>","")
     xml += servicos[1].to_xml.gsub("<?xml version='1.0' encoding='UTF-8'?>","")
     xml += servicos[2].to_xml.gsub("<?xml version='1.0' encoding='UTF-8'?>","")
