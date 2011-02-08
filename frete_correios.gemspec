@@ -7,4 +7,5 @@ Gem::Specification.new do |s|
   s.summary     = "Simples gem que retorna os valores de um frete diretamente da base dos correios"
   
   s.files        = Dir["{lib/**/*.rb,README.rdoc,spec/**/*.rb,Rakefile,*.gemspec,init.rb}"]
+  s.require_path = "lib"
 end
