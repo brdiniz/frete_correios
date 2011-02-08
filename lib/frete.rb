@@ -149,23 +149,32 @@ class Frete
     @servicos = find
   end
   
+  def servicos_to_xml
+    xml = "<?xml version=""1.0"" encoding=""UTF-8""?>"
+    xml += "<servicos type=""array"">"
+    self.servicos.each do |servico|      
+      xml += servico.to_xml.gsub("<?xml version=""1.0"" encoding=""UTF-8""?>","")
+    end
+    xml += "</servicos>"
+  end
+  
   def find
     uri = "http://ws.correios.com.br/calculador/CalcPrecoPrazo.aspx?"
-    uri = uri + "nCdEmpresa=" + @codigo_empresa
-    uri = uri + "&sDsSenha=" + @senha_empresa
-    uri = uri + "&sCepOrigem=" + @cep_origem
-    uri = uri + "&sCepDestino=" + @cep_destino
-    uri = uri + "&nVlPeso=" + @peso
-    uri = uri + "&nCdFormato=" + @codigo_formato
-    uri = uri + "&nVlComprimento=" + @comprimento
-    uri = uri + "&nVlAltura=" + @altura
-    uri = uri + "&nVlLargura=" + @largura
-    uri = uri + "&sCdMaoPropria=s"
-    uri = uri + "&nVlValorDeclarado=" + @valor_declarado
-    uri = uri + "&sCdAvisoRecebimento=" + @codigo_aviso_recebimento
-    uri = uri + "&nCdServico=" + @codigo_servico
-    uri = uri + "&nVlDiametro=" + @diametro
-    uri = uri + "&StrRetorno=xml"
+    uri += "nCdEmpresa=" + @codigo_empresa
+    uri += "&sDsSenha=" + @senha_empresa
+    uri += "&sCepOrigem=" + @cep_origem
+    uri += "&sCepDestino=" + @cep_destino
+    uri += "&nVlPeso=" + @peso
+    uri += "&nCdFormato=" + @codigo_formato
+    uri += "&nVlComprimento=" + @comprimento
+    uri += "&nVlAltura=" + @altura
+    uri += "&nVlLargura=" + @largura
+    uri += "&sCdMaoPropria=s"
+    uri += "&nVlValorDeclarado=" + @valor_declarado
+    uri += "&sCdAvisoRecebimento=" + @codigo_aviso_recebimento
+    uri += "&nCdServico=" + @codigo_servico
+    uri += "&nVlDiametro=" + @diametro
+    uri += "&StrRetorno=xml"
     
     source = open(uri).read
     xml = Document.new(source).root

@@ -5,7 +5,7 @@ describe Servico do
   before(:each) do
     @s = Servico.new(:codigo => "41106",
     :valor => "10,00",
-    :prazo_entrega => "3,50",
+    :prazo_entrega => "3",
     :valor_mao_de_obra => "1,32",
     :valor_aviso_recebimento => "1,50",
     :valor_declarado => "100,00",
@@ -24,7 +24,7 @@ describe Servico do
   end
 
   it "posso ler o retorno do prazo_entrega" do
-    @s.prazo_entrega.should == "3,50"
+    @s.prazo_entrega.should == "3"
   end
 
   it "posso ler o retorno do valor_mao_de_obra" do
@@ -45,5 +45,9 @@ describe Servico do
 
   it "posso ler o retorno do entrega_sabado" do
     @s.entrega_sabado.should == "S"
+  end
+  
+  it "posso ler o xml" do
+    @s.to_xml.should == "<?xml version=""1.0"" encoding=""UTF-8""?><servico><codigo>41106</codigo><valor>10,00</valor><prazo_entrega>3</prazo_entrega><valor_mao_de_obra>1,32</valor_mao_de_obra><valor_aviso_recebimento>1,50</valor_aviso_recebimento><valor_declarado>100,00</valor_declarado><entrega_domiciliar>S</entrega_domiciliar><entrega_sabado>S</entrega_sabado></servico>"
   end
 end
