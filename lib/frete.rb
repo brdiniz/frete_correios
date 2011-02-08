@@ -150,10 +150,10 @@ class Frete
   end
   
   def servicos_to_xml
-    xml = "<?xml version=""1.0"" encoding=""UTF-8""?>"
+    xml = "<?xml version='1.0' encoding='UTF-8'?>"
     xml += "<servicos type=""array"">"
     self.servicos.each do |servico|      
-      xml += servico.to_xml.gsub("<?xml version=""1.0"" encoding=""UTF-8""?>","")
+      xml += servico.to_xml.gsub("<?xml version='1.0' encoding='UTF-8'?>","")
     end
     xml += "</servicos>"
   end

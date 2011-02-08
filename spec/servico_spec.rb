@@ -48,6 +48,6 @@ describe Servico do
   end
   
   it "posso ler o xml" do
-    @s.to_xml.should == "<?xml version=""1.0"" encoding=""UTF-8""?><servico><codigo>41106</codigo><valor>10,00</valor><prazo_entrega>3</prazo_entrega><valor_mao_de_obra>1,32</valor_mao_de_obra><valor_aviso_recebimento>1,50</valor_aviso_recebimento><valor_declarado>100,00</valor_declarado><entrega_domiciliar>S</entrega_domiciliar><entrega_sabado>S</entrega_sabado></servico>"
+    @s.to_xml.should == "<?xml version='1.0' encoding='UTF-8'?><servico><codigo>41106</codigo><valor>10,00</valor><prazo_entrega>3</prazo_entrega><valor_mao_de_obra>1,32</valor_mao_de_obra><valor_aviso_recebimento>1,50</valor_aviso_recebimento><valor_declarado>100,00</valor_declarado><entrega_domiciliar>S</entrega_domiciliar><entrega_sabado>S</entrega_sabado></servico>"
   end
 end
