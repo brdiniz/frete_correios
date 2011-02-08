@@ -1,1 +1,2 @@
-require 'bin/frete_correios'
+require 'frete'
+require 'servico'
