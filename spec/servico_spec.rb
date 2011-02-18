@@ -18,6 +18,10 @@ describe Servico do
   it "posso ler o retorno do codigo" do
     @s.codigo.should == "41106"
   end
+  
+  it "posso ler o nome do codigo" do
+    @s.nome.should == "PAC sem contrato"
+  end
 
   it "posso ler o retorno do valor" do
     @s.valor.should == "10,00"

@@ -1,9 +1,9 @@
 require 'frete'
 
-describe Frete do
+describe Correios::Frete do
   
   before(:each) do
-    @f = Frete.new(:codigo_empresa => "",
+    @f = Correios::Frete.new(:codigo_empresa => "",
     :senha_empresa => "",
     :codigo_servico => "41106,40010,40215,40290",
     :cep_origem => "01123001",
@@ -94,5 +94,43 @@ describe Frete do
     json += "]"
 
     @f.servicos_to_json.should == json
+  end
+  
+  it "quando um pedido tem varios codigo e só retorna 1" do
+   f =  Correios::Frete.new(:codigo_empresa => "",
+    :senha_empresa => "",
+    :codigo_servico => "41106,40010,40215,40290",
+    :cep_origem => "01123001",
+    :cep_destino => "67145250",   
+    :peso => "10,00",
+    :codigo_formato => "1",  
+    :comprimento => "60", 
+    :altura => "5",
+    :largura => "60",
+    :diametro => "0",
+    :codigo_mao_de_obra => "s",
+    :valor_declarado => "1500",
+    :codigo_aviso_recebimento => "S") 
+    
+    f.servicos.size.should == 2
+  end
+  
+  it "prazo de entrega ter que ser igual a 7 de acordo com informações passadas" do
+    f =  Correios::Frete.new(:codigo_empresa => "",
+      :senha_empresa => "",
+      :codigo_servico => "41106",
+      :cep_origem => "01123001",
+      :cep_destino => "67145250",   
+      :peso => "10,00",
+      :codigo_formato => "1",
+      :comprimento => "60",
+      :altura => "5",
+      :largura => "60",
+      :diametro => "0",
+      :codigo_mao_de_obra => "s",
+      :valor_declarado => "1500",
+      :codigo_aviso_recebimento => "S")
+    
+    f.servicos.first.prazo_entrega.should == "7"
   end
 end

@@ -21,6 +21,13 @@ class Servico
     @codigo
   end
   
+  def nome
+    return "PAC sem contrato" if self.codigo == "41106"
+    return "Sedex" if self.codigo == "40010"
+    return "Sedex 10" if self.codigo == "40215"
+    return "Sedex Hoje" if self.codigo == "40290"
+  end
+  
   def valor=(v)
     @valor=v
   end
